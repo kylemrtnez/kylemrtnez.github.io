@@ -1,0 +1,275 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* END RESET */
+
+/*-----------------------------------------------------------------------------
+ - GENERAL STYLING 
+ -----------------------------------------------------------------------------*/
+body {
+    font-family: 'Comfortaa', Helvetica Neue, Helvetica, sans-serif;
+    font-size: 21px;
+    font-weight: 200;
+    background-color: #fdfcfc;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*-----------------------------------------------------------------------------
+ - GENERAL STYLING 
+ -----------------------------------------------------------------------------*/
+.wrapper {
+    display: grid;
+    grid-template-columns: 25% repeat(3, 1fr) 25%;
+    height: 100vh;
+}
+
+.main-nav {
+    grid-column: 2 / -2;
+}
+
+.intro {
+    grid-column: 2 / -2;
+}
+
+.pic-container {
+    grid-column: 2 / 3;
+}
+
+.my-story {
+    grid-column: 3 / -2;
+}
+
+@media only screen and (max-width: 1800px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        height: 100vh;
+    }
+
+    .main-nav {
+        grid-column: 1 / -1;
+    }
+
+    .intro {
+        grid-column: 1 / -1;
+    }
+
+    .pic-container {
+        grid-column: 1 / -1;
+        align-items: center;
+    }
+
+    .my-story {
+        grid-column: 1 / -1;
+        margin-left: 20px;
+    }
+}
+
+
+
+/*-----------------------------------------------------------------------------
+ - NAVIGATION 
+ ----------------------------------------------------------------------------*/
+.main-nav {
+    background-color: #ffffff;
+}
+
+.main-nav ul {
+    display: flex;
+    margin: auto;    
+    padding: 10px;
+    border: solid 1px rgba(90, 125, 190, 0.15);
+    border-radius: 4px;
+}
+
+.main-nav ul .left {
+    margin-right: auto;
+}
+
+.main-nav ul li {
+    margin: 10px;
+}
+
+.main-nav ul li a {
+    color: #000000
+}
+
+/*-----------------------------------------------------------------------------
+ - MOBILE NAV
+ -----------------------------------------------------------------------------*/
+ .mobile-nav, .dropdown-content {
+     display: none;
+ }
+
+.hamburger {
+    background: #ffffff;
+    border: none;
+    color: #000000;
+}
+
+@media only screen and (max-width: 768px) {
+    .main-nav > ul > .right {
+        display: none;
+    }
+
+    .main-nav > ul {
+        flex-direction: column;
+    }
+
+    .main-nav ul .left {
+        margin-right: 0;
+    }
+
+    .mobile-nav {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+        position: absolute;
+        margin-top: 5px;
+    }
+
+    .dropdown-content {
+        display: none;
+    }
+
+    .hamburger > i {
+        font-size: 1.65em !important;
+    }
+
+    .toggle-display {
+        /* this is used for the dropdown menu */
+        display: flex;
+    }
+
+}
+
+/*----------------------------------------------------------------------------- 
+ - HEADER 
+ -----------------------------------------------------------------------------*/
+.intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    justify-self: stretch;
+    background-color: #ffffff;
+}
+
+.intro * {
+    justify-self: center;
+}
+
+.intro h1 {
+    /* font-family: 'Nothing You Could Do'; */
+    font-size: 2.85em;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.pic-container {
+    align-self: stretch;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.intro-pic {
+    height: 425px;
+    width: auto;
+    border-radius: 50%;
+    margin: 1vh;
+}
+
+@media only screen and (max-width: 768px) {
+    .intro h1 {
+        font-size: 2.50em;
+    }
+    .intro-pic {
+        height: 350px;
+        width: auto;
+    }
+}
+
+.intro h3 {
+    font-size: 1.25em;
+    margin: 2vh;
+    text-align: center;
+}
+
+
+.my-story {
+    background: #ffffff;
+}
+
+.my-story p {
+    margin: 2vh 0;
+    color: #8b8b8b;
+}
+
+.my-story h2 {
+    font-size: 2em;
+}
+
+/*-----------------------------------------------------------------------------
+ - Hover Effects 
+ -----------------------------------------------------------------------------*/
+.main-nav ul li a:hover,
+/* Need both of the following for firefox */
+.main-nav ul button:hover i, 
+.main-nav ul button:hover, 
+.secondary-nav ul li a i:hover {
+    color: #3d8bff;
+    cursor: pointer;
+}
+
+a:visited {
+    color: inherit;
+}
+
